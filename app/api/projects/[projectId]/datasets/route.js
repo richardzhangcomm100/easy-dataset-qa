@@ -20,9 +20,10 @@ async function optimizeCot(originalQuestion, answer, originalCot, language, llmC
 /**
  * 生成数据集（为单个问题生成答案）
  */
-export async function POST(request, { params }) {
+export async function POST(request, context) {
   try {
-    const { projectId } = params;
+    const { params } = context;
+    const { projectId } = await params;
     const { questionId, chunkId, model, language } = await request.json();
 
     // 验证参数
@@ -105,9 +106,10 @@ export async function POST(request, { params }) {
 /**
  * 获取项目的所有数据集
  */
-export async function GET(request, { params }) {
+export async function GET(request, context) {
   try {
-    const { projectId } = params;
+    const { params } = context;
+    const { projectId } = await params;
 
     // 验证项目ID
     if (!projectId) {
@@ -131,9 +133,10 @@ export async function GET(request, { params }) {
 /**
  * 删除数据集
  */
-export async function DELETE(request, { params }) {
+export async function DELETE(request, context) {
   try {
-    const { projectId } = params;
+    const { params } = context;
+    const { projectId } = await params;
     const { searchParams } = new URL(request.url);
     const datasetId = searchParams.get('id');
 
@@ -183,9 +186,10 @@ export async function DELETE(request, { params }) {
 /**
  * 编辑数据集
  */
-export async function PATCH(request, { params }) {
+export async function PATCH(request, context) {
   try {
-    const { projectId } = params;
+    const { params } = context;
+    const { projectId } = await params;
     const { searchParams } = new URL(request.url);
     const datasetId = searchParams.get('id');
     const { answer, cot, confirmed } = await request.json();

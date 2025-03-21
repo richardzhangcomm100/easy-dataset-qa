@@ -11,9 +11,10 @@ export const dynamic = 'force-dynamic';
 export const bodyParser = false;
 
 // 获取项目文件列表
-export async function GET(request, { params }) {
+export async function GET(request, context) {
   try {
-    const { projectId } = params;
+    const { params } = context;
+    const { projectId } = await params;
 
     // 验证项目ID
     if (!projectId) {
@@ -31,9 +32,10 @@ export async function GET(request, { params }) {
 }
 
 // 删除文件
-export async function DELETE(request, { params }) {
+export async function DELETE(request, context) {
   try {
-    const { projectId } = params;
+    const { params } = context;
+    const { projectId } = await params;
     const { searchParams } = new URL(request.url);
     const fileName = searchParams.get('fileName');
 
@@ -75,9 +77,9 @@ export async function DELETE(request, { params }) {
 }
 
 // 上传文件
-export async function POST(request, { params }) {
-  console.log('文件上传请求开始处理, 参数:', params);
-  const { projectId } = params;
+export async function POST(request, context) {
+    const { params } = context;
+    const { projectId } = await params;
 
   // 验证项目ID
   if (!projectId) {

@@ -10,9 +10,10 @@ import { getTaskConfig } from '@/lib/db/projects';
 const { extractJsonFromLLMOutput } = require('@/lib/llm/common/util');
 
 // 批量生成问题
-export async function POST(request, { params }) {
+export async function POST(request, context) {
   try {
-    const { projectId } = params;
+    const { params } = context;
+    const { projectId } = await params;
 
     // 验证项目ID
     if (!projectId) {

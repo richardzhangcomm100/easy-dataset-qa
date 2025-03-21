@@ -26,9 +26,11 @@ export default function LanguageSwitcher() {
             bgcolor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.1)' : 'rgba(255, 255, 255, 0.25)'
           }
         }}
+        disabled
       >
         <Typography variant="body2" fontWeight="medium">
-          {i18n.language === 'zh-CN' ? 'EN' : '中'}
+          {/* {i18n.language === 'zh-CN' ? 'EN' : '中'} */}
+          EN
         </Typography>
       </IconButton>
     </Tooltip>

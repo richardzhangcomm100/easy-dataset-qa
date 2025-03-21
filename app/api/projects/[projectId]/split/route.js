@@ -9,9 +9,10 @@ import { saveTags, getTags } from '@/lib/db/tags';
 const { extractJsonFromLLMOutput } = require('@/lib/llm/common/util');
 
 // 处理文本分割请求
-export async function POST(request, { params }) {
+export async function POST(request, context) {
   try {
-    const { projectId } = params;
+    const { params } = context;
+    const { projectId } = await params;
 
     // 验证项目ID
     if (!projectId) {
@@ -67,9 +68,10 @@ export async function POST(request, { params }) {
 }
 
 // 获取项目中的所有文本块
-export async function GET(request, { params }) {
+export async function GET(request, context) {
   try {
-    const { projectId } = params;
+    const { params } = context;
+    const { projectId } = await params;
 
     // 验证项目ID
     if (!projectId) {

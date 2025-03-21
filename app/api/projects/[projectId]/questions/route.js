@@ -4,9 +4,10 @@ import { getDatasets } from '@/lib/db/datasets';
 
 
 // 获取项目的所有问题
-export async function GET(request, { params }) {
+export async function GET(request, context) {
   try {
-    const { projectId } = params;
+    const { params } = context;
+    const { projectId } = await params;
 
     // 验证项目ID
     if (!projectId) {

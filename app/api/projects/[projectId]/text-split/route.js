@@ -72,9 +72,10 @@ function extractDirectoryFromMarkdown(text) {
   });
 }
 
-export async function POST(request, { params }) {
+export async function POST(request, context) {
   try {
-    const { projectId } = params;
+    const { params } = context;
+    const { projectId } = await params;
 
     // 获取项目信息
     const project = await getProject(projectId);
@@ -159,9 +160,10 @@ export async function POST(request, { params }) {
 }
 
 // 获取项目中所有文本片段
-export async function GET(request, { params }) {
+export async function GET(request, context) {
   try {
-    const { projectId } = params;
+    const { params } = context;
+    const { projectId } = await params;
 
     // 获取项目信息
     const project = await getProject(projectId);

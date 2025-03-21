@@ -2,9 +2,10 @@ import { NextResponse } from 'next/server';
 import { batchDeleteQuestions } from '@/lib/db/questions';
 
 // 批量删除问题
-export async function DELETE(request, { params }) {
+export async function DELETE(request, context) {
   try {
-    const { projectId } = params;
+    const { params } = context;
+    const { projectId } = await params;
     
     // 验证项目ID
     if (!projectId) {

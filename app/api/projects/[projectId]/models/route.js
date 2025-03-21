@@ -4,9 +4,10 @@ import fs from 'fs/promises';
 import { getProjectRoot } from '@/lib/db/base';
 
 // 获取模型配置
-export async function GET(request, { params }) {
+export async function GET(request, context) {
   try {
-    const { projectId } = params;
+    const { params } = context;
+    const { projectId } = await params;
 
     // 验证项目 ID
     if (!projectId) {
@@ -47,9 +48,10 @@ export async function GET(request, { params }) {
 }
 
 // 更新模型配置
-export async function PUT(request, { params }) {
+export async function PUT(request, context) {
   try {
-    const { projectId } = params;
+    const { params } = context;
+    const { projectId } = await params;
 
     // 验证项目 ID
     if (!projectId) {

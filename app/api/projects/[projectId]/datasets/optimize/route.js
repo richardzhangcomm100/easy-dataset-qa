@@ -7,9 +7,10 @@ import getNewAnswerEnPrompt from '@/lib/llm/prompts/newAnswerEn';
 import { extractJsonFromLLMOutput } from '@/lib/llm/common/util';
 
 // 优化数据集答案
-export async function POST(request, { params }) {
+export async function POST(request, context) {
   try {
-    const { projectId } = params;
+    const { params } = context;
+    const { projectId } = await params;
 
     // 验证项目ID
     if (!projectId) {

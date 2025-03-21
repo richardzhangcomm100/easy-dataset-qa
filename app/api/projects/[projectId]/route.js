@@ -1,9 +1,10 @@
 import { getProject, updateProject, deleteProject } from '@/lib/db/index';
 
 // 获取项目详情
-export async function GET(request, { params }) {
+export async function GET(request, context) {
   try {
-    const { projectId } = params;
+    const { params } = context;
+    const { projectId } = await params;
     const project = await getProject(projectId);
 
     if (!project) {
@@ -18,9 +19,10 @@ export async function GET(request, { params }) {
 }
 
 // 更新项目
-export async function PUT(request, { params }) {
+export async function PUT(request, context) {
   try {
-    const { projectId } = params;
+    const { params } = context;
+    const { projectId } = await params;
     const projectData = await request.json();
 
     // 验证必要的字段
@@ -42,9 +44,10 @@ export async function PUT(request, { params }) {
 }
 
 // 删除项目
-export async function DELETE(request, { params }) {
+export async function DELETE(request, context) {
   try {
-    const { projectId } = params;
+    const { params } = context;
+    const { projectId } = await params;
     const success = await deleteProject(projectId);
 
     if (!success) {

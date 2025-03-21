@@ -2,9 +2,10 @@ import { NextResponse } from 'next/server';
 import { saveTags, getTags } from '@/lib/db/tags';
 
 // 获取项目的标签树
-export async function GET(request, { params }) {
+export async function GET(request, context) {
   try {
-    const { projectId } = params;
+    const { params } = context;
+    const { projectId } = await params;
 
     // 验证项目ID
     if (!projectId) {
@@ -22,9 +23,10 @@ export async function GET(request, { params }) {
 }
 
 // 更新项目的标签树
-export async function PUT(request, { params }) {
+export async function PUT(request, context) {
   try {
-    const { projectId } = params;
+    const { params } = context;
+    const { projectId } = await params;
 
     // 验证项目ID
     if (!projectId) {
