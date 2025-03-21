@@ -5,7 +5,7 @@ import { Box, Paper, Typography, Alert, useTheme } from '@mui/material';
  * 聊天消息组件
  * @param {Object} props
  * @param {Object} props.message - 消息对象
- * @param {string} props.message.role - 消息角色：'user'、'assistant' 或 'error'
+ * @param {string} props.message.role - 消息角色: 'user'、'assistant' 或 'error'
  * @param {string} props.message.content - 消息内容
  * @param {string} props.modelName - 模型名称（仅在 assistant 或 error 类型消息中显示）
  */

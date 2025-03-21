@@ -60,7 +60,7 @@ export async function POST(request, { params }) {
     // 从LLM输出中提取JSON格式的问题列表
     const questions = extractJsonFromLLMOutput(response);
 
-    console.log(projectId, chunkId, 'Questions：', questions);
+    console.log(projectId, chunkId, 'Questions: ', questions);
 
     if (!questions || !Array.isArray(questions)) {
       return NextResponse.json({ error: 'Error generating questions' }, { status: 500 });
@@ -74,7 +74,7 @@ export async function POST(request, { params }) {
     const labelResponse = await llmClient.getResponse(labelPrompt);
     // 从LLM输出中提取JSON格式的问题列表
     const labelQuestions = extractJsonFromLLMOutput(labelResponse);
-    console.log(projectId, chunkId, 'Label Questions：', labelQuestions);
+    console.log(projectId, chunkId, 'Label Questions: ', labelQuestions);
 
     // 保存问题到数据库
     await addQuestionsForChunk(projectId, chunkId, labelQuestions);

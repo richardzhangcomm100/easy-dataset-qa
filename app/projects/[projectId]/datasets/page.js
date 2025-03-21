@@ -381,7 +381,7 @@ const DeleteConfirmDialog = ({ open, datasets, onClose, onConfirm, batch, progre
           }}
         >
           <Typography variant="subtitle2" color="text.secondary" fontWeight="bold">
-            {t('datasets.question')}：
+            {t('datasets.question')}: 
           </Typography>
           <Typography variant="body2">
             {dataset?.question}
@@ -697,7 +697,7 @@ export default function DatasetsPage({ params }) {
       let fileExtension;
 
       if (exportOptions.fileFormat === 'jsonl') {
-        // JSONL 格式：每行一个 JSON 对象
+        // JSONL 格式: 每行一个 JSON 对象
         content = formattedData.map(item => JSON.stringify(item)).join('\n');
         fileExtension = 'jsonl';
       } else {

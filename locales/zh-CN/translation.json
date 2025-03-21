@@ -288,8 +288,8 @@
         "source": "来源",
         "generateDataset": "生成数据集",
         "generateNotImplemented": "生成数据集功能未实现",
-        "generateSuccess": "成功生成数据集：{{question}}",
-        "generateFailed": "生成数据集失败：{{error}}",
+        "generateSuccess": "成功生成数据集: {{question}}",
+        "generateFailed": "生成数据集失败: {{error}}",
         "noTagsAndQuestions": "暂无标签和问题",
         "answerCount": "{{count}} 个答案"
     },

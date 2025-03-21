@@ -39,6 +39,7 @@ export default function ChunkList({ projectId, chunks = [], onDelete, onGenerate
   const displayedChunks = chunks.slice(startIndex, endIndex);
   const totalPages = Math.ceil(chunks.length / itemsPerPage);
   const { t } = useTranslation();
+  console.log(chunks,"chunks")
 
   const handlePageChange = (event, value) => {
     setPage(value);

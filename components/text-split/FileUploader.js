@@ -259,7 +259,7 @@ export default function FileUploader({ projectId, onUploadSuccess, onProcessStar
       }}
     >
       <Grid container spacing={3} >
-        {/* 左侧：上传文件区域 */}
+        {/* 左侧: 上传文件区域 */}
         <Grid item xs={12} md={6} sx={{ maxWidth: '100%', width: '100%'  }}>
           <UploadArea
             theme={theme}
@@ -272,7 +272,7 @@ export default function FileUploader({ projectId, onUploadSuccess, onProcessStar
           />
         </Grid>
 
-        {/* 右侧：已上传文件列表 */}
+        {/* 右侧: 已上传文件列表 */}
         <Grid item xs={12} md={6} sx={{ maxWidth: '100%', width: '100%' }}>
           <FileList
             theme={theme}
